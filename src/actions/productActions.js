@@ -5,8 +5,30 @@ import {
 } from '../types/index'
 
 export function createNewProductAction(product){
+    return (dispatch) => {
+        dispatch(addProduct())
 
-    return () => {
-        console.log(product)
+        try {
+            dispatch(addProductSuccess(product))
+
+        } catch (error) {
+            dispatch(addProductError(true))
+        }
+
     }
 }
+
+const addProduct = () => ({
+    type: ADD_PRODUCT,
+    payload: true
+})
+
+const addProductSuccess = product => ({
+    type: ADD_PRODUCT_SUCCESS,
+    payload: product
+})
+
+const addProductError = (state) => ({
+    type: ADD_PRODUCT_ERROR,
+    payload: state
+})
