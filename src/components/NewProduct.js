@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux'
 // Actions from redux
 import {createNewProductAction} from '../actions/productActions.js'
 
-const NewProduct = () => {
+const NewProduct = ({history}) => {
     // Local state to manage the form
     const [state, setState] = useState({
         name: '',
@@ -37,9 +37,11 @@ const NewProduct = () => {
             return;
         }
         
-
         // Add the product
         addProduct(state);
+
+        // Home redirection
+        history.push('/')
     }
     
     return (

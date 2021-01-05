@@ -34,6 +34,16 @@
       "name": "aasdf",
       "price": "0345",
       "id": 7
+    },
+    {
+      "name": "Patates",
+      "price": "2",
+      "id": 8
+    },
+    {
+      "name": "Cebes",
+      "price": "2",
+      "id": 9
     }
   ]
 }
