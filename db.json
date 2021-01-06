@@ -1,16 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Brewed coffee",
-      "price": "1.35"
-    },
-    {
-      "id": 2,
-      "name": "Café au lait",
-      "price": "2.65"
-    },
-    {
       "name": "French press",
       "price": "2.65",
       "id": 3
@@ -24,11 +14,6 @@
       "name": "Croissant",
       "price": "3.50",
       "id": 5
-    },
-    {
-      "name": "Hot Tea",
-      "price": "1.75",
-      "id": 6
     },
     {
       "name": "Bagel with cream cheese",

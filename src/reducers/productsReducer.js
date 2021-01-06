@@ -4,7 +4,10 @@ import {
     ADD_PRODUCT_ERROR,
     GET_PRODUCTS,
     GET_PRODUCTS_SUCCESS,
-    GET_PRODUCTS_ERROR
+    GET_PRODUCTS_ERROR,
+    DELETE_PRODUCT,
+    DELETE_PRODUCT_SUCCESS,
+    DELETE_PRODUCT_ERROR,
 } from '../types/index'
 
 // Each reducer has it's own state
@@ -12,6 +15,7 @@ const initialState = {
     products: [],
     error: false,
     loading: false,
+    productErrase: null
 }
 
 export default function(state = initialState, action) {
@@ -43,7 +47,24 @@ export default function(state = initialState, action) {
                 error: false,
                 products: action.payload
             }
-
+        case DELETE_PRODUCT:
+            return {
+                ...state,
+                productErrase: action.payload
+            }
+        case DELETE_PRODUCT_SUCCESS:
+            return {
+                ...state,
+                products: state.products.filter(product => product.id !== state.productErrase),
+                error: false,
+                productErrase: null
+            }
+        case DELETE_PRODUCT_ERROR:
+            return {
+                ...state,
+                error: action.payload,
+                productErrase: null
+            }
         default:
             return state
     }
