@@ -4,8 +4,8 @@ import {
     DELETE_PRODUCT_ERROR,
 } from '../types/index'
 
-import axiosClient from '../config/axios';
-import Swal from 'sweetalert2';
+import axiosClient from '../config/axios'
+import Swal from 'sweetalert2'
 
 // Action to select and delete a product to the database
 export function deleteProductAction (id) {
@@ -15,6 +15,11 @@ export function deleteProductAction (id) {
         try{
             const dbResult = await axiosClient.delete(`products/${id}`)
             dispatch (deleteProductSuccess())
+            Swal.fire(
+                'Deleted!',
+                'The product has been errased.',
+                'success'
+            )
         } catch (error) {
             dispatch (deleteProductError(true))
         }

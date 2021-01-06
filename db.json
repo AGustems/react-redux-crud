@@ -1,11 +1,6 @@
 {
   "products": [
     {
-      "name": "French press",
-      "price": "2.65",
-      "id": 3
-    },
-    {
       "name": "Iced coffee",
       "price": "1.85",
       "id": 4
