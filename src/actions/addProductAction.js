@@ -1,12 +1,13 @@
 import {
     ADD_PRODUCT,
     ADD_PRODUCT_SUCCESS,
-    ADD_PRODUCT_ERROR
+    ADD_PRODUCT_ERROR,
 } from '../types/index'
 
 import axiosClient from '../config/axios';
 import Swal from 'sweetalert2';
 
+// Action to add a new product to the database
 export function createNewProductAction(product){
     return async (dispatch) => {
         dispatch(addProduct())
@@ -32,6 +33,7 @@ export function createNewProductAction(product){
     }
 }
 
+// Functions to dispatch
 const addProduct = () => ({
     type: ADD_PRODUCT,
     payload: true
@@ -42,7 +44,7 @@ const addProductSuccess = product => ({
     payload: product
 })
 
-const addProductError = (state) => ({
+const addProductError = state => ({
     type: ADD_PRODUCT_ERROR,
     payload: state
 })
