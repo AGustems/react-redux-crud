@@ -1,12 +1,14 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import Swal from 'sweetalert2';
 
 import {useDispatch} from 'react-redux'
 import {deleteProductAction} from '../actions/deleteProductAction'
+import {getEditProductAction} from '../actions/editProductAction'
 
 const Product = ({product}) => {
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const confirmDeleteProduct = id => {
         Swal.fire({
@@ -24,15 +26,22 @@ const Product = ({product}) => {
             }
         })
     }
+
+    const redirectEdit = product => {
+        dispatch(getEditProductAction(product))
+        history.push(`/products/edit/${product.id}`)
+    }
     
     return (
         <tr>
             <td>{product.name}</td>
             <td><span className="font-weight-bold">$ {product.price}</span></td>
             <td className="actions">
-                <Link to={`/products/edit/${product.id}`} 
+                <button 
+                    type="button"
+                    onClick={() => redirectEdit(product)}
                     className="btn btn-primary mr-2"
-                > Edit </Link>
+                > Edit </button>
                 <button
                     type="button"
                     className="btn btn-danger"

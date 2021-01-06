@@ -8,6 +8,10 @@ import {
     DELETE_PRODUCT,
     DELETE_PRODUCT_SUCCESS,
     DELETE_PRODUCT_ERROR,
+    GET_EDIT_PRODUCT,
+    EDIT_PRODUCT,
+    EDIT_PRODUCT_SUCCESS,
+    EDIT_PRODUCT_ERROR
 } from '../types/index'
 
 // Each reducer has it's own state
@@ -15,13 +19,15 @@ const initialState = {
     products: [],
     error: false,
     loading: false,
-    productErrase: null
+    productErrase: null,
+    productEdit: null
 }
 
-export default function(state = initialState, action) {
-    switch(action.type){
+export default function (state = initialState, action) {
+    switch (action.type) {
         case ADD_PRODUCT:
         case GET_PRODUCTS:
+        case EDIT_PRODUCT:
             return {
                 ...state,
                 loading: action.payload
@@ -31,10 +37,13 @@ export default function(state = initialState, action) {
                 ...state,
                 loading: false,
                 error: false,
-                products: [...state.products, action.payload]
+                products: [
+                    ...state.products,
+                    action.payload
+                ]
             }
         case ADD_PRODUCT_ERROR:
-        case GET_PRODUCTS_ERROR: 
+        case GET_PRODUCTS_ERROR:
             return {
                 ...state,
                 loading: false,
@@ -55,7 +64,9 @@ export default function(state = initialState, action) {
         case DELETE_PRODUCT_SUCCESS:
             return {
                 ...state,
-                products: state.products.filter(product => product.id !== state.productErrase),
+                products: state
+                    .products
+                    .filter(product => product.id !== state.productErrase),
                 error: false,
                 productErrase: null
             }
@@ -64,6 +75,28 @@ export default function(state = initialState, action) {
                 ...state,
                 error: action.payload,
                 productErrase: null
+            }
+        case GET_EDIT_PRODUCT:
+            return {
+                ...state,
+                productEdit: action.payload
+            }
+        case EDIT_PRODUCT_SUCCESS:
+            return {
+                ...state,
+                productEdit: null,
+                products: state
+                    .products
+                    .map(product => product.id === action.payload.id
+                        ? product = action.payload
+                        : product)
+            }
+        case EDIT_PRODUCT_ERROR: 
+            return {
+                ...state,
+                error: action.payload,
+                loading: false,
+                productEdit: null
             }
         default:
             return state
