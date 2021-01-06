@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react'
-import {userSelector, useDispatch} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 
 import {getProductsAction} from '../actions/getProductAction'
+import Product from './Product'
 
 const Products = () => {
     const dispatch = useDispatch()
@@ -12,6 +13,9 @@ const Products = () => {
         loadProducts();
     }, [])
 
+    // Obtain the state
+    const products = useSelector(state => state.products.products)
+    
     return (
         <>
             <h2 className="text-center my-5"> Product Listing</h2>
@@ -24,7 +28,14 @@ const Products = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    {products.length === 0 ? null : (
+                        products.map(product => (
+                            <Product 
+                                key={product.id}
+                                product={product}
+                            />
+                        ))
+                    )}
                 </tbody>
             </table>
         </>

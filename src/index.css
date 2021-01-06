@@ -36,14 +36,14 @@ h1 a.text-light:hover {
         flex: 0 1 auto;
     }
 }
-.acciones {
+.accions {
     margin: 1rem 0;
 }
 @media (min-width:768px) {
-    .acciones {
+    .accions {
         margin: 0;
     }
 }
-.acciones > * {
+.accions > * {
     flex: 1;
 }

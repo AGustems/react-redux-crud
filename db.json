@@ -2,57 +2,57 @@
   "products": [
     {
       "id": 1,
-      "nombre": "Jugo de Zanahoria",
-      "precio": "31111"
+      "name": "Brewed coffee",
+      "price": "1.35"
     },
     {
       "id": 2,
-      "nombre": "Jugo de Naranja",
-      "precio": "1"
+      "name": "Café au lait",
+      "price": "2.65"
     },
     {
-      "nombre": "Jugo de Naranja",
-      "precio": "300",
+      "name": "French press",
+      "price": "2.65",
       "id": 3
     },
     {
-      "nombre": "Rib Eye 800g",
-      "precio": "200",
+      "name": "Iced coffee",
+      "price": "1.85",
       "id": 4
     },
     {
-      "nombre": "Jugo de Fresa",
-      "precio": "200",
+      "name": "Croissant",
+      "price": "3.50",
       "id": 5
     },
     {
-      "name": "Banana",
-      "price": "5",
+      "name": "Hot Tea",
+      "price": "1.75",
       "id": 6
     },
     {
-      "name": "aasdf",
-      "price": "0345",
+      "name": "Bagel with cream cheese",
+      "price": "5.70",
       "id": 7
     },
     {
-      "name": "Patates",
-      "price": "2",
+      "name": "Cinnamon roll",
+      "price": "4.15",
       "id": 8
     },
     {
-      "name": "Cebes",
-      "price": "2",
+      "name": "Fruit Tart",
+      "price": "4.30",
       "id": 9
     },
     {
-      "name": "Kai",
-      "price": "1000",
+      "name": "Orange juice",
+      "price": "2.50",
       "id": 10
     },
     {
-      "name": "baba",
-      "price": "10",
+      "name": "Jungle juice",
+      "price": "2.25",
       "id": 11
     }
   ]
