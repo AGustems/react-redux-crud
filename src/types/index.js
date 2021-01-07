@@ -18,3 +18,7 @@ export const GET_EDIT_PRODUCT = 'GET_EDIT_PRODUCT'
 export const EDIT_PRODUCT = 'EDIT_PRODUCT'
 export const EDIT_PRODUCT_SUCCESS = 'EDIT_PRODUCT_SUCCESS'
 export const EDIT_PRODUCT_ERROR = 'EDIT_PRODUCT_ERROR'
+
+// Types to show/hide alerts
+export const SHOW_ALERT = 'SHOW_ALERT'
+export const HIDE_ALERT = 'HIDE_ALERT'

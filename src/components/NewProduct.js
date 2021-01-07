@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 
 // Actions from redux
-import {createNewProductAction} from '../actions/addProductAction.js'
+import {createNewProductAction} from '../actions/addProductAction'
+import {showAlertAction} from '../actions/alertsActions'
 
 const NewProduct = ({history}) => {
     // Local state to manage the form
@@ -34,9 +35,18 @@ const NewProduct = ({history}) => {
         
         // Validate the form
         if(state.name.trim() === "" || +state.price <= 0){
+            const alert = {
+                msg: 'Both fields are mandatory',
+                classes: 'alert alert-danger text-center text-uppercase p3'
+            }
+            
+            dispatch(showAlertAction(alert))
+
             return;
         }
         
+
+
         // Add the product
         addProduct(state);
 
