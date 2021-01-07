@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 
 // Actions from redux
 import {createNewProductAction} from '../actions/addProductAction'
-import {showAlertAction} from '../actions/alertsActions'
+import {showAlertAction, hideAlertAction} from '../actions/alertsActions'
 
 const NewProduct = ({history}) => {
     // Local state to manage the form
@@ -26,6 +26,7 @@ const NewProduct = ({history}) => {
     // Access to the store state
     const loading = useSelector( state => state.products.loading)
     const error = useSelector(state => state.products.error)
+    const alert = useSelector (state => state.alerts.alert)
 
     // Call the action from productAction
     const addProduct = product => dispatch(createNewProductAction(product))
@@ -44,8 +45,9 @@ const NewProduct = ({history}) => {
 
             return;
         }
-        
 
+        // If there are no errors
+        dispatch(hideAlertAction())
 
         // Add the product
         addProduct(state);
@@ -62,6 +64,8 @@ const NewProduct = ({history}) => {
                         <h2 className="text-center mb-4 font-weight-bold">
                             Add New Product
                         </h2>
+
+                        {alert ? <p className={alert.classes}>{alert.msg}</p> : null}
 
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">

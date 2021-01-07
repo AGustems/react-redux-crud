@@ -4,10 +4,17 @@ import {
 } from '../types/index'
 
 
-// Action to show/hide the alert
+// Action to show the alert
 export function showAlertAction (alert) {
     return async (dispatch) => {
         dispatch( showAlert (alert))
+    }
+}
+
+// Action to hide the alert
+export function hideAlertAction () {
+    return async (dispatch) => {
+        dispatch(hideAlert())
     }
 }
 
@@ -15,4 +22,8 @@ export function showAlertAction (alert) {
 const showAlert = alert => ({
     type: SHOW_ALERT,
     payload: alert
+})
+
+const hideAlert = () => ({
+    type: HIDE_ALERT
 })
